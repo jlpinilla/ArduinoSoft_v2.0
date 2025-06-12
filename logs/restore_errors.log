@@ -1,0 +1,6 @@
+[11-Jun-2025 20:17:20 UTC] [2025-06-11 20:17:20] Iniciando restauración de backup: proyecto_backup_2025-06-11_22-16-53.zip
+[11-Jun-2025 20:17:23 UTC] [2025-06-11 20:17:23] Restauración exitosa: {"type":"proyecto","filename":"proyecto_backup_2025-06-11_22-16-53.zip","restored":{"files":{"count":38,"safety_backup":"proyecto_backup_2025-06-11_20-17-21.zip"}}}
+[11-Jun-2025 20:17:45 UTC] [2025-06-11 20:17:45] Iniciando restauración de backup: proyecto_backup_2025-06-11_20-17-21.zip
+[11-Jun-2025 20:17:48 UTC] [2025-06-11 20:17:48] Restauración exitosa: {"type":"proyecto","filename":"proyecto_backup_2025-06-11_20-17-21.zip","restored":{"files":{"count":38,"safety_backup":"proyecto_backup_2025-06-11_20-17-46.zip"}}}
+[11-Jun-2025 20:22:53 UTC] [2025-06-11 20:22:53] Iniciando restauración de backup: proyecto_backup_2025-06-11_22-22-22.zip
+[11-Jun-2025 20:22:59 UTC] [2025-06-11 20:22:59] Restauración exitosa: {"type":"proyecto","filename":"proyecto_backup_2025-06-11_22-22-22.zip","restored":{"files":{"count":38,"safety_backup":"proyecto_backup_2025-06-11_20-22-53.zip"}}}

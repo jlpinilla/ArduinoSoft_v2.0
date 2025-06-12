@@ -1,0 +1,7 @@
+INFORMACIÓN DEL BACKUP
+======================
+
+Tipo: Proyecto
+Fecha de creación: 2025-06-11 22:22:23
+Usuario: admin
+Sistema: Grupo Sorolla Educación v2.0

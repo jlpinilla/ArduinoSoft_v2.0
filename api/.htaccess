@@ -1,0 +1,28 @@
+# Configuración para el directorio API
+RewriteEngine On
+
+# Permitir CORS para dispositivos Arduino
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Responder a peticiones OPTIONS (preflight)
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Redirigir todas las peticiones a datos.php si no se especifica archivo
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ datos.php [L,QSA]
+
+# Configuración de seguridad
+<Files "*.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+# Limitar tamaño de archivos subidos
+LimitRequestBody 1048576
+
+# Configurar timeout
+TimeOut 30

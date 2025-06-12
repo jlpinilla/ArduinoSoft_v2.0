@@ -1,0 +1,8 @@
+# Proteger directorio de logs
+Order deny,allow
+Deny from all
+
+# Permitir solo acceso desde el servidor local
+<RequireAll>
+    Require local
+</RequireAll>
