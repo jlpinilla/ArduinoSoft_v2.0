@@ -464,7 +464,14 @@ try {
         
         <!-- ===== TABLA DETALLADA DE REGISTROS ===== -->
         <div class="form-section">
-            <h4>📋 Registros Detallados (Últimas 24 horas) - <?php echo count($registros); ?> registros</h4>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h4 style="margin: 0;">📋 Registros Detallados (Últimas 24 horas) - <?php echo count($registros); ?> registros</h4>
+                <a href="?seccion=dispositivos&action=monitor&id=<?php echo $device_id; ?>" 
+                   class="btn btn-sm btn-primary" 
+                   style="background: var(--primary-color); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; display: flex; align-items: center; gap: 5px;">
+                    🔄 Refrescar Registros
+                </a>
+            </div>
             <!-- Tabla scrolleable con registros históricos -->
             <div style="overflow-x: auto; max-height: 400px;">
                 <table style="width: 100%; border-collapse: collapse; background: white;">
@@ -524,12 +531,14 @@ try {
     <?php endif; ?>
     
     <div class="text-center mt-xl">
-        <a href="?seccion=dispositivos&action=edit&id=<?php echo $device_id; ?>" class="btn btn-secondary">
-            ✏️ Editar Dispositivo
-        </a>
-        <a href="?seccion=dispositivos" class="btn btn-primary">
-            ← Volver a Lista
-        </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <a href="?seccion=dispositivos&action=edit&id=<?php echo $device_id; ?>" class="btn btn-secondary">
+                ✏️ Editar Dispositivo
+            </a>
+            <a href="?seccion=dispositivos" class="btn btn-primary">
+                ← Volver a Lista
+            </a>
+        </div>
     </div>
     
     <?php } ?>
