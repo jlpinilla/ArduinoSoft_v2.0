@@ -1767,3 +1767,111 @@
 [2025-06-12 02:04:48] [INFO] [admin] Backup completo finalizado: complete_backup_2025-06-12_02-04-45.zip
 [2025-06-12 00:04:53] [INFO] [admin] Descarga iniciada: complete_backup_2025-06-12_02-04-45.zip
 [2025-06-12 00:04:53] [INFO] [admin] Descarga completada: complete_backup_2025-06-12_02-04-45.zip
+[2025-06-12 02:23:30] [INFO] [admin] Backup eliminado: proyecto_backup_2025-06-11_22-22-22.zip
+[2025-06-12 02:23:34] [INFO] [admin] Backup eliminado: proyecto_backup_2025-06-11_20-22-53.zip
+[2025-06-12 02:23:46] [INFO] [admin] Iniciando backup completo del proyecto
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: api\.htaccess
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: api\datos.php
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: callback.php
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: config.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\.gitkeep
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_25_06_11_23_07.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_24_02.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_24_34.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_28_24.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_32_40.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_35_11.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_38_44.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_41_11.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_44_09.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_12_01_53_35.ini
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configbackup\README.md
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: configinicial.php
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: debug_session.php
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: documentos\briefing_completo_proyecto.md
+[2025-06-12 02:23:46] [INFO] [admin] Archivo copiado: download_backup.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\backup_completo.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\backup_manager.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\backup_operations.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\configuracion.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\configuracion_operations.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\dashboard.php
+[2025-06-12 02:23:47] [INFO] [admin] Archivo copiado: includes\database_manager.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: includes\dispositivos.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: includes\informes.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: includes\informes_export.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: includes\timezone_manager.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: includes\usuarios.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: index.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: login-pages.css
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: logout.php
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: logs\.htaccess
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: media\logo.png
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: media\logo_1749641422.png
+[2025-06-12 02:23:48] [INFO] [admin] Archivo copiado: migrate_backups.php
+[2025-06-12 02:23:49] [INFO] [admin] Archivo copiado: panel.php
+[2025-06-12 02:23:49] [INFO] [admin] Archivo copiado: public.php
+[2025-06-12 02:23:49] [INFO] [admin] Archivo copiado: restore_backup.php
+[2025-06-12 02:23:49] [INFO] [admin] Archivo copiado: styles.css
+[2025-06-12 02:23:49] [INFO] [admin] Archivo ZIP creado: proyecto_backup_2025-06-12_02-23-46.zip (1.51 MB)
+[2025-06-12 02:23:49] [INFO] [admin] Backup del proyecto completado: proyecto_backup_2025-06-12_02-23-46.zip
+[2025-06-12 02:23:53] [INFO] [admin] Iniciando backup de la base de datos
+[2025-06-12 02:23:53] [INFO] [admin] Dump SQL creado: database_dump.sql (26.42 KB)
+[2025-06-12 02:23:53] [INFO] [admin] Archivo ZIP creado: database_backup_2025-06-12_02-23-53.zip (0.01 MB)
+[2025-06-12 02:23:53] [INFO] [admin] Backup de la base de datos completado: database_backup_2025-06-12_02-23-53.zip
+[2025-06-12 00:23:59] [INFO] [admin] Descarga iniciada: database_backup_2025-06-12_02-23-53.zip
+[2025-06-12 00:23:59] [INFO] [admin] Descarga completada: database_backup_2025-06-12_02-23-53.zip
+[2025-06-18 10:46:23] [INFO] [admin] Iniciando backup completo (proyecto + base de datos)
+[2025-06-18 10:46:23] [INFO] [admin] Copiando archivos del proyecto...
+[2025-06-18 10:46:23] [INFO] [admin] Archivo copiado: api\.htaccess
+[2025-06-18 10:46:23] [INFO] [admin] Archivo copiado: api\datos.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: callback.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: config.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\.gitkeep
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_24_34.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_28_24.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_32_40.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_35_11.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_38_44.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_41_11.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_11_23_44_09.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_12_01_53_35.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_12_10_15_58.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\config_back_manual_25_06_15_03_34_00.ini
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configbackup\README.md
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: configinicial.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: debug_session.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: documentos\briefing_completo_proyecto.md
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: documentos\Integration.md
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: documentos\Libro de Estilo ArduinoSoftv2.md
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: download_backup.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: includes\backup_completo.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: includes\backup_manager.php
+[2025-06-18 10:46:24] [INFO] [admin] Archivo copiado: includes\backup_operations.php
+[2025-06-18 10:46:25] [INFO] [admin] Archivo copiado: includes\configuracion.php
+[2025-06-18 10:46:25] [INFO] [admin] Archivo copiado: includes\configuracionbak.php
+[2025-06-18 10:46:25] [INFO] [admin] Archivo copiado: includes\configuracion_operations.php
+[2025-06-18 10:46:26] [INFO] [admin] Archivo copiado: includes\dashboard.php
+[2025-06-18 10:46:26] [INFO] [admin] Archivo copiado: includes\database_manager.php
+[2025-06-18 10:46:26] [INFO] [admin] Archivo copiado: includes\dispositivos.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: includes\informes.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: includes\informes_export.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: includes\timezone_manager.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: includes\usuarios.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: index.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: login-pages.css
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: logout.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: media\logo.png
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: media\logo_1749641422.png
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: migrate_backups.php
+[2025-06-18 10:46:27] [INFO] [admin] Archivo copiado: panel.php
+[2025-06-18 10:46:28] [INFO] [admin] Archivo copiado: public.php
+[2025-06-18 10:46:28] [INFO] [admin] Archivo copiado: restore_backup.php
+[2025-06-18 10:46:28] [INFO] [admin] Archivo copiado: rss.php
+[2025-06-18 10:46:28] [INFO] [admin] Archivo copiado: styles.css
+[2025-06-18 10:46:28] [INFO] [admin] Generando dump de la base de datos...
+[2025-06-18 10:46:28] [INFO] [admin] Dump SQL creado: database_dump.sql (27.61 KB)
+[2025-06-18 10:46:28] [INFO] [admin] Archivo ZIP creado: complete_backup_2025-06-18_10-46-23.zip (1.55 MB)
+[2025-06-18 10:46:28] [INFO] [admin] Backup completo finalizado: complete_backup_2025-06-18_10-46-23.zip
+[2025-06-18 08:46:33] [INFO] [admin] Descarga iniciada: complete_backup_2025-06-18_10-46-23.zip
+[2025-06-18 08:46:33] [INFO] [admin] Descarga completada: complete_backup_2025-06-18_10-46-23.zip

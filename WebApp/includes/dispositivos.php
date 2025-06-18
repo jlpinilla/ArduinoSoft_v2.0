@@ -329,11 +329,13 @@ try {
     
     <!-- === Botones de confirmación === -->
     <div class="text-center mt-xl">
-        <a href="?seccion=dispositivos&action=delete&id=<?php echo $device_id; ?>&confirm=1" 
-           class="btn" style="background: var(--error-color); color: white;">
-            Sí, Eliminar Dispositivo y Registros
-        </a>
-        <a href="?seccion=dispositivos" class="btn btn-primary">Cancelar</a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <a href="?seccion=dispositivos&action=delete&id=<?php echo $device_id; ?>&confirm=1" 
+               class="btn" style="background: var(--error-color); color: white;">
+                Sí, Eliminar Dispositivo y Registros
+            </a>
+            <a href="?seccion=dispositivos" class="btn btn-primary">Cancelar</a>
+        </div>
     </div>
     <?php } ?>
 

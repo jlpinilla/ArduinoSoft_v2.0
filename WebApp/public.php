@@ -209,6 +209,40 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
     return 'normal';                             // Sin alertas = normal
 }
 
+// ===== FUNCIÓN DE EVALUACIÓN DE UMBRALES =====
+// Función para evaluar si un valor cumple con los umbrales configurados
+function evaluateThreshold($value, $parameter, $umbrales) {
+    switch($parameter) {
+        case 'temperatura':
+            if ($value > $umbrales['temperatura_max']) return 'critical';
+            if ($value > ($umbrales['temperatura_max'] - 2)) return 'warning';
+            return 'normal';
+        
+        case 'humedad':
+            if ($value > $umbrales['humedad_max']) return 'critical';
+            if ($value > ($umbrales['humedad_max'] - 3)) return 'warning';
+            return 'normal';
+        
+        case 'ruido':
+            if ($value > $umbrales['ruido_max']) return 'critical';
+            if ($value > ($umbrales['ruido_max'] - 5)) return 'warning';
+            return 'normal';
+        
+        case 'co2':
+            if ($value > $umbrales['co2_max']) return 'critical';
+            if ($value > ($umbrales['co2_max'] - 200)) return 'warning';
+            return 'normal';
+        
+        case 'lux':
+            if ($value < $umbrales['lux_min']) return 'critical';
+            if ($value < ($umbrales['lux_min'] + 50)) return 'warning';
+            return 'normal';
+        
+        default:
+            return 'normal';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -886,21 +920,21 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
             </div>
             <div class="env-stat-values">
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['temp_promedio'] > $umbrales['temperatura_max'] ? 'value-critical' : 'value-normal'; ?>" 
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['temp_promedio'], 'temperatura', $umbrales); ?>" 
                          aria-label="Temperatura promedio: <?php echo $estadisticas_globales['temp_promedio']; ?> grados celsius">
                         <?php echo $estadisticas_globales['temp_promedio']; ?>°
                     </div>
                     <div class="env-stat-label">Promedio</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['temp_max'] > $umbrales['temperatura_max'] ? 'value-critical' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['temp_max'], 'temperatura', $umbrales); ?>"
                          aria-label="Temperatura máxima: <?php echo $estadisticas_globales['temp_max']; ?> grados celsius">
                         <?php echo $estadisticas_globales['temp_max']; ?>°
                     </div>
                     <div class="env-stat-label">Máximo</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value value-normal"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['temp_min'], 'temperatura', $umbrales); ?>"
                          aria-label="Temperatura mínima: <?php echo $estadisticas_globales['temp_min']; ?> grados celsius">
                         <?php echo $estadisticas_globales['temp_min']; ?>°
                     </div>
@@ -923,21 +957,21 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
             </div>
             <div class="env-stat-values">
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['hum_promedio'] > $umbrales['humedad_max'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['hum_promedio'], 'humedad', $umbrales); ?>"
                          aria-label="Humedad promedio: <?php echo $estadisticas_globales['hum_promedio']; ?> por ciento">
                         <?php echo $estadisticas_globales['hum_promedio']; ?>%
                     </div>
                     <div class="env-stat-label">Promedio</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['hum_max'] > $umbrales['humedad_max'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['hum_max'], 'humedad', $umbrales); ?>"
                          aria-label="Humedad máxima: <?php echo $estadisticas_globales['hum_max']; ?> por ciento">
                         <?php echo $estadisticas_globales['hum_max']; ?>%
                     </div>
                     <div class="env-stat-label">Máximo</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value value-normal"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['hum_min'], 'humedad', $umbrales); ?>"
                          aria-label="Humedad mínima: <?php echo $estadisticas_globales['hum_min']; ?> por ciento">
                         <?php echo $estadisticas_globales['hum_min']; ?>%
                     </div>
@@ -960,21 +994,21 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
             </div>
             <div class="env-stat-values">
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['ruido_promedio'] > $umbrales['ruido_max'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['ruido_promedio'], 'ruido', $umbrales); ?>"
                          aria-label="Ruido promedio: <?php echo $estadisticas_globales['ruido_promedio']; ?> decibelios">
                         <?php echo $estadisticas_globales['ruido_promedio']; ?> dB
                     </div>
                     <div class="env-stat-label">Promedio</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['ruido_max'] > $umbrales['ruido_max'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['ruido_max'], 'ruido', $umbrales); ?>"
                          aria-label="Ruido máximo: <?php echo $estadisticas_globales['ruido_max']; ?> decibelios">
                         <?php echo $estadisticas_globales['ruido_max']; ?> dB
                     </div>
                     <div class="env-stat-label">Máximo</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value value-normal"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['ruido_min'], 'ruido', $umbrales); ?>"
                          aria-label="Ruido mínimo: <?php echo $estadisticas_globales['ruido_min']; ?> decibelios">
                         <?php echo $estadisticas_globales['ruido_min']; ?> dB
                     </div>
@@ -997,21 +1031,21 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
             </div>
             <div class="env-stat-values">
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['co2_promedio'] > $umbrales['co2_max'] ? 'value-critical' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['co2_promedio'], 'co2', $umbrales); ?>"
                          aria-label="CO2 promedio: <?php echo $estadisticas_globales['co2_promedio']; ?> partes por millón">
                         <?php echo $estadisticas_globales['co2_promedio']; ?>
                     </div>
                     <div class="env-stat-label">Promedio</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['co2_max'] > $umbrales['co2_max'] ? 'value-critical' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['co2_max'], 'co2', $umbrales); ?>"
                          aria-label="CO2 máximo: <?php echo $estadisticas_globales['co2_max']; ?> partes por millón">
                         <?php echo $estadisticas_globales['co2_max']; ?>
                     </div>
                     <div class="env-stat-label">Máximo</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value value-normal"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['co2_min'], 'co2', $umbrales); ?>"
                          aria-label="CO2 mínimo: <?php echo $estadisticas_globales['co2_min']; ?> partes por millón">
                         <?php echo $estadisticas_globales['co2_min']; ?>
                     </div>
@@ -1034,21 +1068,21 @@ function getAlertStatus($temp, $hum, $ruido, $co2, $lux, $umbrales) {
             </div>
             <div class="env-stat-values">
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['lux_promedio'] < $umbrales['lux_min'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['lux_promedio'], 'lux', $umbrales); ?>"
                          aria-label="Iluminación promedio: <?php echo $estadisticas_globales['lux_promedio']; ?> luxes">
                         <?php echo $estadisticas_globales['lux_promedio']; ?>
                     </div>
                     <div class="env-stat-label">Promedio</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value value-normal"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['lux_max'], 'lux', $umbrales); ?>"
                          aria-label="Iluminación máxima: <?php echo $estadisticas_globales['lux_max']; ?> luxes">
                         <?php echo $estadisticas_globales['lux_max']; ?>
                     </div>
                     <div class="env-stat-label">Máximo</div>
                 </div>
                 <div class="env-stat-item">
-                    <div class="env-stat-value <?php echo $estadisticas_globales['lux_min'] < $umbrales['lux_min'] ? 'value-warning' : 'value-normal'; ?>"
+                    <div class="env-stat-value value-<?php echo evaluateThreshold($estadisticas_globales['lux_min'], 'lux', $umbrales); ?>"
                          aria-label="Iluminación mínima: <?php echo $estadisticas_globales['lux_min']; ?> luxes">
                         <?php echo $estadisticas_globales['lux_min']; ?>
                     </div>

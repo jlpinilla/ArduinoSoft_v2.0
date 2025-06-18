@@ -27,7 +27,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'admin') {
 }
 
 // ===== VARIABLES DE CONTROL =====
-$action = filter_input(INPUT_POST, "action") ?? filter_input(INPUT_GET, "action") ?? 'edit';
+$action = $_POST['action'] ?? $_GET['action'] ?? 'edit';
 $message = '';
 $error = '';
 
@@ -55,24 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'save') {
         $nueva_config = [
             'database' => $config_actual['database'] ?? [], // Preservar config BD
             'sistema' => [
-                'nombre' => trim(filter_input(INPUT_POST, "sistema_nombre") ?? 'Suite Ambiental'),
-                'version' => trim(filter_input(INPUT_POST, "sistema_version") ?? '2.0'),
-                'timezone' => trim(filter_input(INPUT_POST, "sistema_timezone") ?? '+02:00'),
-                'log_level' => trim(filter_input(INPUT_POST, "sistema_log_level") ?? 'info'),
+                'nombre' => trim($_POST['sistema_nombre'] ?? 'Suite Ambiental'),
+                'version' => trim($_POST['sistema_version'] ?? '2.0'),
+                'timezone' => trim($_POST['sistema_timezone'] ?? '+02:00'),
+                'log_level' => trim($_POST['sistema_log_level'] ?? 'info'),
                 'logo' => $config_actual['sistema']['logo'] ?? 'media/logo.png' // Preservar logo actual
             ],            'referencias' => [
-                'temperatura_max' => floatval(filter_input(INPUT_POST, "temperatura_max") ?? 25),
-                'humedad_max' => floatval(filter_input(INPUT_POST, "humedad_max") ?? 48),
-                'ruido_max' => floatval(filter_input(INPUT_POST, "ruido_max") ?? 35),
-                'co2_max' => intval(filter_input(INPUT_POST, "co2_max") ?? 1000),
-                'lux_min' => intval(filter_input(INPUT_POST, "lux_min") ?? 195)
+                'temperatura_max' => floatval($_POST['temperatura_max'] ?? 25),
+                'humedad_max' => floatval($_POST['humedad_max'] ?? 48),
+                'ruido_max' => floatval($_POST['ruido_max'] ?? 35),
+                'co2_max' => intval($_POST['co2_max'] ?? 1000),
+                'lux_min' => intval($_POST['lux_min'] ?? 195)
             ],            'publico' => [
-                'titulo' => trim(filter_input(INPUT_POST, "publico_titulo") ?? 'Monitor Ambiental'),
-                'subtitulo' => trim(filter_input(INPUT_POST, "publico_subtitulo") ?? 'Sistema de Sensores Arduino'),
-                'color_fondo' => trim(filter_input(INPUT_POST, "publico_color_fondo") ?? '#667eea'),
-                'color_secundario' => trim(filter_input(INPUT_POST, "publico_color_secundario") ?? '#764ba2'),
-                'color_texto' => trim(filter_input(INPUT_POST, "publico_color_texto") ?? '#ffffff'),
-                'refresh_interval' => intval(filter_input(INPUT_POST, "publico_refresh_interval") ?? 60)
+                'titulo' => trim($_POST['publico_titulo'] ?? 'Monitor Ambiental'),
+                'subtitulo' => trim($_POST['publico_subtitulo'] ?? 'Sistema de Sensores Arduino'),
+                'color_fondo' => trim($_POST['publico_color_fondo'] ?? '#667eea'),
+                'color_secundario' => trim($_POST['publico_color_secundario'] ?? '#764ba2'),
+                'color_texto' => trim($_POST['publico_color_texto'] ?? '#ffffff'),
+                'refresh_interval' => intval($_POST['publico_refresh_interval'] ?? 60)
             ]
         ];
         
@@ -2182,4 +2182,93 @@ function testRSSFeed() {
 }
 </script>
     
+    fetch(rssUrl)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            if (data.includes('<rss') || data.includes('<?xml')) {
+                showNotification('✅ Feed RSS funcionando correctamente', 'success');
+            } else {
+                showNotification('⚠️ El feed RSS responde pero el formato puede no ser válido', 'warning');
+            }
+        })
+        .catch(error => {
+            showNotification('❌ Error al acceder al feed RSS: ' + error.message, 'error');
+        });
+}
+</script>
+        link.href = logoPath + '?v=' + Date.now(); // Cache busting
+        document.head.appendChild(link);
+    });
+}
+
+// Función para copiar URL RSS al portapapeles
+function copyRSSUrl() {
+    const rssInput = document.getElementById('rss_url');
     
+    // Seleccionar el texto
+    rssInput.select();
+    rssInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+    
+    // Copiar al portapapeles
+    try {
+        navigator.clipboard.writeText(rssInput.value).then(function() {
+            showNotification('✅ URL del feed RSS copiada al portapapeles', 'success');
+            
+            // Cambiar temporalmente el texto del botón
+            const copyBtn = document.querySelector('.copy-btn');
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '✅ Copiado';
+            copyBtn.disabled = true;
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+                copyBtn.disabled = false;
+            }, 2000);
+        }).catch(function() {
+            // Fallback para navegadores antiguos
+            document.execCommand('copy');
+            showNotification('✅ URL del feed RSS copiada al portapapeles', 'success');
+        });
+    } catch (err) {
+        // Fallback final
+        try {
+            document.execCommand('copy');
+            showNotification('✅ URL del feed RSS copiada al portapapeles', 'success');
+        } catch (fallbackErr) {
+            showNotification('❌ No se pudo copiar. Seleccione y copie manualmente.', 'error');
+        }
+    }
+}
+
+// Función para probar el feed RSS
+function testRSSFeed() {
+    const rssUrl = document.getElementById('rss_url').value;
+    
+    showNotification('🧪 Probando conectividad del feed RSS...', 'info');
+    
+    fetch(rssUrl)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            if (data.includes('<rss') || data.includes('<?xml')) {
+                showNotification('✅ Feed RSS funcionando correctamente', 'success');
+            } else {
+                showNotification('⚠️ El feed RSS responde pero el formato puede no ser válido', 'warning');
+            }
+        })
+        .catch(error => {
+            showNotification('❌ Error al acceder al feed RSS: ' + error.message, 'error');
+        });
+}
+</script>
